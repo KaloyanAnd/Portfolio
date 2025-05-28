@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { onMount } from "svelte";
   import "../app.css";
 
@@ -9,11 +9,13 @@
   };
 
   onMount(() => {
+    console.log("Component mounted");
     window.addEventListener("scroll", handleScroll);
+    handleScroll(); // init state on mount
     return () => window.removeEventListener("scroll", handleScroll);
   });
 
-  const scrollToSection = (id) => {
+  const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
   };
@@ -33,17 +35,12 @@
     years > 0 && months > 0
       ? `${years} yr${years > 1 ? "s" : ""} ${months} mo${months > 1 ? "s" : ""}`
       : years > 0
-      ? `${years} yr${years > 1 ? "s" : ""}`
-      : `${months} mo${months > 1 ? "s" : ""}`;
-  
+        ? `${years} yr${years > 1 ? "s" : ""}`
+        : `${months} mo${months > 1 ? "s" : ""}`;
 </script>
 
 <!-- NAVBAR -->
-<nav
-  class="fixed top-0 left-0 w-full text-white shadow z-50 transition-colors duration-300 {isScrolled
-    ? 'bg-gray-900/90'
-    : 'bg-gray-900'}"
->
+<nav class="fixed top-0 left-0 w-full text-white shadow z-50 transition-colors duration-300 {isScrolled ? 'bg-gray-900/90' : 'bg-gray-900'}">
   <div class="flex justify-center space-x-6 py-4 font-semibold">
     <button on:click={() => scrollToSection("experience")}>Experience</button>
     <button on:click={() => scrollToSection("skills")}>Skills</button>
@@ -67,19 +64,26 @@
 <section id="experience" class="py-20 px-6 max-w-3xl mx-auto">
   <h2 class="text-3xl font-bold mb-6">Work Experience</h2>
 
-  <h3 class="text-xl font-semibold">
-    Full Stack Software Developer – BUL-AI
-  </h3>
-  <p class="italic text-sm mb-2"> Dec 2023 – Present · {duration}</p>
+  <h3 class="text-xl font-semibold">Full Stack Software Developer – BUL-AI</h3>
+  <p class="italic text-sm mb-2">Dec 2023 – Present · {duration}</p>
   <ul class="list-disc list-inside text-gray-700 space-y-1">
-    <li>Built and maintained responsive web applications using JavaScript, jQuery, SCSS, and HTML</li>
-    <li>Developed UI components with Framework7, Bootstrap, SweetAlert2, and Select2</li>
+    <li>
+      Built and maintained responsive web applications using JavaScript, jQuery,
+      SCSS, and HTML
+    </li>
+    <li>
+      Developed UI components with Framework7, Bootstrap, SweetAlert2, and
+      Select2
+    </li>
     <li>Created hybrid mobile apps using Cordova for Android/iOS deployment</li>
     <li>Integrated MQTT and WebSockets for real-time data communication</li>
     <li>Handled backend development with PHP, AJAX, and MariaDB/SQL</li>
     <li>Implemented secure BORICA payment gateway integration</li>
     <li>Developed new Cordova-based mobile apps for internal business tools</li>
-    <li>Created a marine planning web app with ship location tracking and route mapping using Leaflet.js</li>
+    <li>
+      Created a marine planning web app with ship location tracking and route
+      mapping using Leaflet.js
+    </li>
   </ul>
 </section>
 
@@ -87,9 +91,11 @@
   <h2 class="text-3xl font-bold mb-8 text-center">Skills</h2>
   <div class="grid sm:grid-cols-3 gap-10 text-gray-700">
     <div>
-      <h3 class="font-semibold text-lg mb-4 border-b-2 border-gray-300 pb-2">Backend</h3>
+      <h3 class="font-semibold text-lg mb-4 border-b-2 border-gray-300 pb-2">
+        Backend
+      </h3>
       <div class="flex flex-wrap gap-3">
-        {#each ['PHP', 'SQL', 'MariaDB', 'C++'] as skill}
+        {#each ["PHP", "SQL", "MariaDB", "C++"] as skill}
           <span
             class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full cursor-default
                    hover:bg-blue-800 hover:text-blue-100 transition-colors duration-300"
@@ -99,9 +105,11 @@
       </div>
     </div>
     <div>
-      <h3 class="font-semibold text-lg mb-4 border-b-2 border-gray-300 pb-2">Frontend</h3>
+      <h3 class="font-semibold text-lg mb-4 border-b-2 border-gray-300 pb-2">
+        Frontend
+      </h3>
       <div class="flex flex-wrap gap-3">
-        {#each ['JavaScript (ES6)', 'React', 'Svelte', 'jQuery', 'AJAX', 'HTML5', 'CSS/SCSS', 'Framework7', 'Bootstrap', 'Select2', 'SweetAlert2', 'Leaflet', 'jQuery UI'] as skill}
+        {#each ["JavaScript (ES6)", "React", "Svelte", "jQuery", "AJAX", "HTML5", "CSS/SCSS", "Framework7", "Bootstrap", "Select2", "SweetAlert2", "Leaflet", "jQuery UI"] as skill}
           <span
             class="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full cursor-default
                    hover:bg-green-800 hover:text-green-100 transition-colors duration-300"
@@ -111,9 +119,11 @@
       </div>
     </div>
     <div>
-      <h3 class="font-semibold text-lg mb-4 border-b-2 border-gray-300 pb-2">Other Technologies</h3>
+      <h3 class="font-semibold text-lg mb-4 border-b-2 border-gray-300 pb-2">
+        Other Technologies
+      </h3>
       <div class="flex flex-wrap gap-3">
-        {#each ['Cordova', 'WebSockets', 'MQTT', 'Notepad'] as skill}
+        {#each ["Cordova", "WebSockets", "MQTT", "Notepad"] as skill}
           <span
             class="bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full cursor-default
                    hover:bg-purple-800 hover:text-purple-100 transition-colors duration-300"
