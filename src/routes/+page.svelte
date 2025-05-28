@@ -130,21 +130,21 @@
   <h2 class="text-3xl font-bold mb-4">Projects & Learning</h2>
 
   <h3 class="text-xl font-semibold mb-1">React Practice Projects</h3>
-  <p class="text-gray-700 mb-4">
+  <p class="text-gray-700 mb-4 indent-3">
     Building small to medium React apps to master component-based architecture,
     hooks, state management, and routing. Examples include to-do lists, weather
     apps, and interactive UI components.
   </p>
 
   <h3 class="text-xl font-semibold mb-1">Svelte & SvelteKit Homework</h3>
-  <p class="text-gray-700 mb-4">
+  <p class="text-gray-700 mb-4 indent-3">
     Actively exploring Svelte and SvelteKit by creating homework projects
     focused on reactivity, stores, server-side rendering, and transitions. This
     hands-on approach helps deepen understanding of modern frontend frameworks.
   </p>
 
   <h3 class="text-xl font-semibold mb-1">Additional Experience</h3>
-  <p class="text-gray-700">
+  <p class="text-gray-700 indent-3">
     Well-versed in JavaScript ES6+, jQuery & AJAX for dynamic web apps, UI
     design with Bootstrap & Framework7, and real-time communication via MQTT.
     Experienced with mobile app development using Cordova and enhancing UX with
